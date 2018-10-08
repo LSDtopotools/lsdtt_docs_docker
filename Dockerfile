@@ -55,6 +55,7 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     slim \
     thread_safe \
     tilt \
+    rubyzip \
     awesome_print \
     bundler \
   && apk del -r --no-cache .rubymakedepends
