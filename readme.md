@@ -32,12 +32,22 @@ $ docker pull lsdtopotools/lsdtt_docks_docker
 ```
 2. Now you need to run the container:
 ```console
-$ docker run -it -v C:\LSDTopoTools:/LSDTopoTools lsdtt_docs_docker
+$ docker run -it -v C:\LSDTopoTools\LSDTT_documentation:/documents lsdtt_docs_docker
 ```
   1. The `-it` means "interactive".
   2. The `-v` stands for "volume" and in practice it links the files in the docker container with files in your host operating system. 
-  3. After the `-v` you need to tell docker where the directories are on both the host operating system (in this case `C:\LSDTopoTools`) and the container (in this case `/LSDTopoTools`). These are separated by a colon (`:`).
-3. Once you do this you will get a `#` symbol showing that you are inside the container. You can now do *LSDTopoTools* stuff. 
+  3. After the `-v` you need to tell docker where the directories are on both the host operating system (in this case `C:\LSDTopoTools\LSDTT_documentation`) and the container (in this case `/documents`). Note that the work directory for the documentation is in a directory called `documents` and not `LSDTopoTools`. The two directories are separated by a colon (`:`).
+3. Once you do this you will get a `#` symbol showing that you are inside the container. 
+
+#### Part 3: Building the documentation
+
+1. Your docker container needs to be running. You should use `git` to get the latest version of the documentation.
+2. Go into the directory with the documentation. 
+3. Run the python script:
+```console
+$ python compile_LSDTTDocs.py
+```
+4. The documentation should be built in a directory alled `html_build`. 
 
 ### Docker notes
 
