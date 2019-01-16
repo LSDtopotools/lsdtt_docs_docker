@@ -2,7 +2,7 @@
 
 ![](https://raw.githubusercontent.com/LSDtopotools/lsdtt_docs_docker/master/images/LSD-logo.png)
 
-This docker container is for building the *LSDTopoTools* documentation. Only use it if you are actually going to update the documentation. If you just want to read the documentation,  [documentation website](https://lsdtopotools.github.io/LSDTT_documentation/).
+This docker container is for building the *LSDTopoTools* documentation. Only use it if you are actually going to update the documentation. If you just want to read the documentation, go to the [documentation website](https://lsdtopotools.github.io/LSDTT_documentation/).
 
 ## Instructions
 
