@@ -37,10 +37,10 @@ RUN apk add --no-cache \
     flex \
     libffi-dev \
     libxml2-dev \
-    libgdk-pixbuf2.0-dev \
-    libcairo2-dev \
-    libpango1.0-dev \
-    fonts-lyx
+    gdk-pixbuf \
+    cairo-dev \
+    pango-dev \
+    ttf-freefont
 
 # Installing Ruby Gems needed in the image
 # including asciidoctor itself
@@ -57,7 +57,6 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     "asciidoctor-pdf:${ASCIIDOCTOR_PDF_VERSION}" \
     asciidoctor-revealjs \
     coderay \
-    nokogiri:1.8.5 \
     epubcheck:3.0.1 \
     haml \
     kindlegen:3.0.3 \
