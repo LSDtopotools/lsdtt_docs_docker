@@ -50,7 +50,7 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     haml \
     kindlegen:3.0.3 \
     pygments.rb \
-    rake \
+    rake:12.3.1 \
     rouge \
     slim \
     thread_safe \
