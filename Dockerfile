@@ -30,17 +30,6 @@ RUN apk add --no-cache \
     ttf-liberation \
     unzip \
     which
-    
-# This stuff is needed for the mathematical for printing pdfs
-RUN apk add --no-cache \
-    bison \
-    flex \
-    libffi-dev \
-    libxml2-dev \
-    gdk-pixbuf \
-    cairo-dev \
-    pango-dev \
-    ttf-freefont
 
 # Installing Ruby Gems needed in the image
 # including asciidoctor itself
@@ -72,7 +61,7 @@ RUN apk add --no-cache --virtual .rubymakedepends \
   && apk del -r --no-cache .rubymakedepends
 
 # Installing Python dependencies for additional
-# functionalities as diagrams or syntax highlighting
+# functionnalities as diagrams or syntax highligthing
 RUN apk add --no-cache --virtual .pythonmakedepends \
     build-base \
     python2-dev \
