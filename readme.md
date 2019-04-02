@@ -28,7 +28,7 @@ These are the bare bones instructions. For a bit more detail and potential bug f
 
 1. To get the container, go into a terminal (MacOS or Linux) or Powershell window (Windows) that has docker enabled and run:
 ```console
-$ docker pull lsdtopotools/lsdtt_docks_docker
+$ docker pull lsdtopotools/lsdtt_docs_docker
 ```
 2. Now you need to run the container:
 ```console
