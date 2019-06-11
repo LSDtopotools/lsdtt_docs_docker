@@ -15,6 +15,7 @@ ENV ASCIIDOCTOR_VERSION=${asciidoctor_version} \
 # any of the asciidoctor-* functionnalities
 RUN apk add --no-cache \
     bash \
+    git \
     curl \
     ca-certificates \
     findutils \
