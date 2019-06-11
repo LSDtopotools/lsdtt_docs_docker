@@ -40,9 +40,19 @@ $ docker run -it -v C:\LSDTopoTools\LSDTT_documentation:/documents lsdtopotools/
 3. Once you do this you will get a `#` symbol showing that you are inside the container. 
 4. To exit the container use `ctrl-D`. The containers all have linux environments so you will be able to use linux command line tools within the docker container.
 
-#### Part 3: Building the documentation
+#### Part 3: Getting the documentation repository
 
-1. Your docker container needs to be running. You should use `git` to get the latest version of the documentation.
+1. You don't actually have any of the files in the docker container. You need to clone them. 
+2. If you are in your docker container, go somewhere you want to put the files and do this:
+```console
+# git clone https://github.com/LSDtopotools/LSDTT_documentation.git master
+```
+3. This clones into a "master" directory. 
+4. You can also clone on your host operating system but if you don't have `git`, the container does have it. 
+
+#### Part 4: Building the documentation
+
+1. Your docker container needs to be running. You should use `git pull origin master` to get the latest version of the documentation. To do this you will have needed to `clone` the repository (see part 3).
 2. Go into the directory with the documentation. 
 3. Run the python script:
 ```console
