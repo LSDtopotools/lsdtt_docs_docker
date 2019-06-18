@@ -1,5 +1,7 @@
 # This is a dockerfile for the LSDTT documentation, only slightly modified from this dockerfile:
 # https://github.com/asciidoctor/docker-asciidoctor
+# NOTE: If the main python compile documenttion script does not work, 
+# go into any of the book section subdirectories and run bundle install
 
 FROM alpine:3.7
 
@@ -12,7 +14,7 @@ ENV ASCIIDOCTOR_VERSION=${asciidoctor_version} \
   ASCIIDOCTOR_PDF_VERSION=${asciidoctor_pdf_version}
 
 # Installing package required for the runtime of
-# any of the asciidoctor-* functionnalities
+# any of the asciidoctor-* functionalities
 RUN apk add --no-cache \
     bash \
     git \
@@ -57,6 +59,7 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     thread_safe \
     tilt \
     rake \
+    concurrent-ruby \
     addressable \
     pdf-reader \
     rubyzip:1.2.1 \
@@ -66,7 +69,7 @@ RUN apk add --no-cache --virtual .rubymakedepends \
   && apk del -r --no-cache .rubymakedepends
 
 # Installing Python dependencies for additional
-# functionnalities as diagrams or syntax highligthing
+# functionalities as diagrams or syntax highligthing
 RUN apk add --no-cache --virtual .pythonmakedepends \
     build-base \
     python2-dev \
