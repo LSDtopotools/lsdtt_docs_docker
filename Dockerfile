@@ -56,6 +56,9 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     slim \
     thread_safe \
     tilt \
+    rake \
+    addressable \
+    pdf-reader \
     rubyzip:1.2.1 \
     public_suffix:3.0.3 \
     awesome_print \
