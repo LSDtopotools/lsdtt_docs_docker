@@ -50,6 +50,13 @@ $ docker run -it -v C:\LSDTopoTools\LSDTT_documentation:/documents lsdtopotools/
 3. This clones into a "master" directory. 
 4. You can also clone on your host operating system but if you don't have `git`, the container does have it. 
 
+#### Part 3b: Fixing stupid problems
+
+1. It seems the rub gems installation causes some incompatibilities. So you need to do the following:
+2. Go into the `LSDTT_python_tools` directory (you may have to first go into a master directory if you have followed the recommended file structure).
+3. Run `# bundle install`
+4. Go back into thge main directory. 
+
 #### Part 4: Building the documentation
 
 1. Your docker container needs to be running. You should use `git pull origin master` to get the latest version of the documentation. To do this you will have needed to `clone` the repository (see part 3).
