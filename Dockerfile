@@ -3,15 +3,25 @@
 # NOTE: If the main python compile documenttion script does not work, 
 # go into any of the book section subdirectories and run bundle install
 
-FROM alpine:3.7
+FROM alpine:3.9
 
 LABEL MAINTAINERS="Simon Mudd <simon.m.mudd@ed.ac.uk>"
 
-ARG asciidoctor_version=1.5.7.1
-ARG asciidoctor_pdf_version=1.5.0.alpha.16
+ARG asciidoctor_version=2.0.10
+ARG asciidoctor_confluence_version=0.0.2
+ARG asciidoctor_pdf_version=1.5.0.alpha.18
+ARG asciidoctor_diagram_version=1.5.18
+ARG asciidoctor_epub3_version=1.5.0.alpha.9
+ARG asciidoctor_mathematical_version=0.3.0
+ARG asciidoctor_revealjs_version=2.0.0
 
 ENV ASCIIDOCTOR_VERSION=${asciidoctor_version} \
-  ASCIIDOCTOR_PDF_VERSION=${asciidoctor_pdf_version}
+  ASCIIDOCTOR_CONFLUENCE_VERSION=${asciidoctor_confluence_version} \
+  ASCIIDOCTOR_PDF_VERSION=${asciidoctor_pdf_version} \
+  ASCIIDOCTOR_DIAGRAM_VERSION=${asciidoctor_diagram_version} \
+  ASCIIDOCTOR_EPUB3_VERSION=${asciidoctor_epub3_version} \
+  ASCIIDOCTOR_MATHEMATICAL_VERSION=${asciidoctor_mathematical_version} \
+  ASCIIDOCTOR_REVEALJS_VERSION=${asciidoctor_revealjs_version}
 
 # Installing package required for the runtime of
 # any of the asciidoctor-* functionalities
@@ -23,6 +33,7 @@ RUN apk add --no-cache \
     findutils \
     font-bakoma-ttf \
     graphviz \
+    inotify-tools \
     make \
     openjdk8-jre \
     py2-pillow \
@@ -42,34 +53,27 @@ RUN apk add --no-cache --virtual .rubymakedepends \
     ruby-dev \
   && gem install --no-document \
     "asciidoctor:${ASCIIDOCTOR_VERSION}" \
-    asciidoctor-confluence \
-    asciidoctor-diagram \
-    asciidoctor-epub3:1.5.0.alpha.7 \
-    asciidoctor-mathematical \
+    "asciidoctor-confluence:${ASCIIDOCTOR_CONFLUENCE_VERSION}" \
+    "asciidoctor-diagram:${ASCIIDOCTOR_DIAGRAM_VERSION}" \
+    "asciidoctor-epub3:${ASCIIDOCTOR_EPUB3_VERSION}" \
+    "asciidoctor-mathematical:${ASCIIDOCTOR_MATHEMATICAL_VERSION}" \
+    asciimath \
     "asciidoctor-pdf:${ASCIIDOCTOR_PDF_VERSION}" \
-    asciidoctor-revealjs \
+    "asciidoctor-revealjs:${ASCIIDOCTOR_REVEALJS_VERSION}" \
     coderay \
     epubcheck:3.0.1 \
     haml \
     kindlegen:3.0.3 \
     pygments.rb \
-    rake:12.3.1 \
+    rake \
     rouge \
     slim \
-    thread_safe \
-    tilt \
-    rake \
-    concurrent-ruby \
-    addressable \
-    pdf-reader:2.1.0 \
-    rubyzip:1.2.1 \
-    public_suffix:3.0.3 \
-    addressable:2.5.2 \
-    css_parser:1.6.0 \
-    safe_yaml:1.0.4 \ 
     awesome_print \
     bundler \
+    thread_safe \
+    tilt \
   && apk del -r --no-cache .rubymakedepends
+  
 
 # Installing Python dependencies for additional
 # functionalities as diagrams or syntax highligthing
